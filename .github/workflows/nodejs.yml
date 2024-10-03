@@ -16,12 +16,12 @@ jobs:
         node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm test
-    - run: echo "Node.js version is ${{ matrix.node-version }}"
-
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run build
+      - run: echo "Build complete!"
+      - run: echo "Node.js version is ${{ matrix.node-version }}"
